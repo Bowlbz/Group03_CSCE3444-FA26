@@ -7,9 +7,9 @@ Project Idea: A web application that helps students discover movies and organize
 
 Team Members:
 
-Student A — Team Lead
+Student A — David Jason Bowlby
 
-Student B — Frontend Developer
+Student B — 
 
 Student C — Backend Developer
 
