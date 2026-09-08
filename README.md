@@ -3,16 +3,18 @@ CSCE 3444 Project / Weather App
 
 Team #: Team XXX
 
-Project Idea: A web application that helps students discover movies and organize group movie nights.
+Project Idea: A web application that allows students to see what the specific weather will be like on campus and the surrounding area specifically to help plan for travel.
 
 Team Members:
 
-Student A — David Jason Bowlby
+Team Lead: David Jason Bowlby
 
-Student B — 
+Frontend Developer: Harrison Cummings 
 
-Student C — Backend Developer
+Backend Developer: Tulush Mahmood
 
-Student D — Testing / Documentation
+Testing / Documentation - Entire Group 
+
+* The group member listed is overall responsible for that portion of the project however all member of this group will contribute work in each field.
 
 Current Status: Initial project planning and repository setup completed.
