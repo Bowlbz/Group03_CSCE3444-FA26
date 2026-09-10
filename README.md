@@ -18,3 +18,4 @@ Testing / Documentation - Entire Group
 * The group member listed is overall responsible for that portion of the project however all member of this group will contribute work in each field.
 
 Current Status: Initial project planning and repository setup completed.
+Special request- app features need to meet clientele requirements.
