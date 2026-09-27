@@ -1,7 +1,7 @@
 # Group03_CSCE3444-FA26
 CSCE 3444 Project / Weather App
 
-Team #: Team XXX
+Team #: Team 03
 
 Project Idea: A web application that allows students to see what the specific weather will be like on campus and the surrounding area specifically to help plan for travel.
 
