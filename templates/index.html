@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#00853E">
+<title>Mean Green Weather</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="phone" data-default-campus="{{ default_campus }}">
+  <!-- Header: "Mean Green Weather" on the main screen, "< Hourly Forecast" / "< Weather Alerts" on the others -->
+  <header class="app-header">
+    <a href="#now" class="back-link" id="backLink" hidden aria-label="Back to main screen">&lt;</a>
+    <h1 id="screenTitle">Mean Green Weather</h1>
+    <!-- Location picker (UC-03) -->
+    <button type="button" class="location-btn" id="locationBtn" aria-haspopup="dialog" aria-expanded="false">
+      <span id="locationLabel">Denton, TX</span> <span aria-hidden="true">&#9662;</span>
+    </button>
+  </header>
+
+  <div class="scroll" id="scroll">
+    <main id="screen" aria-live="polite"></main>
+
+    <!-- Update button + "Last updated" (UC-02) -->
+    <div class="update-area">
+      <button type="button" id="updateBtn" class="update-btn">
+        <span class="update-icon" aria-hidden="true">&#8635;</span> UPDATE
+      </button>
+      <p id="lastUpdated" class="last-updated"></p>
+    </div>
+  </div>
+
+  <!-- Bottom tab bar: Now / Hourly / Week / Alerts -->
+  <nav class="tab-bar" aria-label="Screens">
+    <a href="#now" data-tab="now">Now</a>
+    <a href="#hourly" data-tab="hourly">Hourly</a>
+    <a href="#week" data-tab="week">Week</a>
+    <a href="#alerts" data-tab="alerts">Alerts</a>
+  </nav>
+
+  <!-- Choose location sheet -->
+  <div class="sheet-backdrop" id="sheetBackdrop" hidden></div>
+  <section class="sheet" id="locationSheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+    <div class="sheet-head">
+      <h2 id="sheetTitle">Choose location</h2>
+      <button type="button" class="sheet-close" id="sheetClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="sheet-body">
+      <button type="button" class="loc-option loc-current" data-current="1">
+        <span class="loc-icon" aria-hidden="true">&#128205;</span>
+        <span class="loc-text"><span class="loc-name">Use my current location</span>
+        <span class="loc-sub" id="currentSub">Uses your device's location</span></span>
+        <span class="loc-check" aria-hidden="true">&#10003;</span>
+      </button>
+      {% for group, campuses in campus_groups %}
+        <p class="loc-group">{{ group }}</p>
+        {% for c in campuses %}
+        <button type="button" class="loc-option" data-campus="{{ c.id }}" data-short="{{ c.short }}">
+          <span class="loc-icon" aria-hidden="true">&#127979;</span>
+          <span class="loc-text"><span class="loc-name">{{ c.name }}</span></span>
+          <span class="loc-check" aria-hidden="true">&#10003;</span>
+        </button>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
