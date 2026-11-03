@@ -1,9 +1,9 @@
 /* Mean Green Weather - styles follow the Section 4 wireframes */
 :root {
   --unt-green: #00853e;
-  --unt-green-dark: #00632e;
+  --unt-green-dark: #004c25;
   --page-bg: #e6ece8;
-  --screen-bg: #f6f7f6;
+  --screen-bg: #ffffff;
   --card-bg: #ffffff;
   --card-border: #3c3c3c;
   --text: #1e1e1e;

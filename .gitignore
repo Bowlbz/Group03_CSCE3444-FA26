@@ -1,0 +1,10 @@
+# Python virtual environments
+venv/
+.venv/
+
+# Python-generated files
+__pycache__/
+*.pyc
+
+# macOS-generated files
+.DS_Store
