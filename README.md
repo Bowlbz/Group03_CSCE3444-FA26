@@ -103,3 +103,38 @@ thing saved is the user's location choice, in the browser's localStorage.
 - Forecast-based alert thresholds: `AlertSystem(heat_index_threshold=105, freeze_threshold=32, high_wind_threshold=30)`
 - Campuses and the default campus: `backend/campuses.py`
 - Number of forecast days: `WeatherAPIClient(days_ahead=7)` (Open-Meteo allows up to 16)
+
+## Live Application & Deployment
+
+**Application:** Mean Green Weather  
+**Live URL:** https://mean-green-weather.onrender.com  
+**Hosting Platform:** Render (Free Web Service)  
+**Backend Framework:** Flask (Python 3)  
+**Production Server:** Gunicorn  
+**Source Repository:** https://github.com/Bowlbz/Group03_CSCE3444-FA26  
+**Deployment Branch:** `main`
+
+### Deployment Configuration
+
+Mean Green Weather is deployed as a Python web service on Render. Render connects directly to the GitHub repository and automatically builds and deploys updates pushed to the `main` branch.
+
+**Build Command:**
+```bash
+pip install -r requirements.txt
+```
+
+**Start Command:**
+```bash
+gunicorn app:app
+```
+
+The application uses Flask for its backend, with Gunicorn serving the application in the deployed environment.
+
+### Updating the Live Application
+
+1. Make and test changes locally.
+2. Commit the changes to Git.
+3. Push the approved changes to the `main` branch.
+4. Render automatically builds and deploys the updated application.
+
+**Note:** Because the application uses Render's Free plan, the service may spin down during inactivity. The first request after inactivity may take additional time to load.
