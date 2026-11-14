@@ -13,6 +13,7 @@ import socket
 from datetime import datetime, timedelta, timezone
 from typing import List, Optional
 from urllib.parse import urlparse
+import logging 
 
 import requests
 
@@ -23,6 +24,8 @@ from .models import (
     WeatherData,
     describe_weather_code,
 )
+
+logger = logging.getLogger(__name__)
 
 # UNT main campus, Denton, TX
 DENTON_LATITUDE = 33.2107
@@ -157,10 +160,13 @@ class WeatherAPIClient:
             resp.raise_for_status()
             payload = resp.json()
         except requests.Timeout as exc:
+            logger.exception("Open-Meteo request timed out")
             raise WeatherAPIError("The weather service took too long to respond.") from exc
         except requests.ConnectionError as exc:
+            logger.exception("Open-Meteo connection failed")
             raise NoConnectionError("Could not connect to the weather service.") from exc
         except (requests.RequestException, ValueError) as exc:
+            logger.exception("Open-Meteo request or response failed")
             raise WeatherAPIError("The weather service returned an error.") from exc
 
         return self._parse_response(payload)
